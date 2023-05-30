@@ -1,0 +1,142 @@
+<!doctype html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    </head>
+    <div id="spbody"  oncontextmenu='return false' class='snippet-body'>
+    <button type="button" class="btn btn-outline-primary btn-lg sb launch" data-toggle="modal" data-target="#staticBackdrop"> <img src="https://soleaspay.com/webPay/asset/sopay.png" height="auto" width="30">  Pay Now
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="sb" id="loader"></div>
+        <div class="modal-content" style="width: auto;">
+            
+            <div class="sb modal-body">
+                <div class="d-flex flex-row justify-content-between">
+                    <div></div>
+                    <div class=""><img src="https://soleaspay.com/webPay/asset/sopay.png" height="auto" width="30"></div>
+                    <div class=""> <i class="fa fa-close sb close" data-dismiss="modal"></i> </div>
+                </div>
+                
+                <div class="sb tabs mt-3">
+                    <div class="col-md-12">
+                        <div class="card card-blue p-3 text-white mb-3"> <span>You have to pay</span>
+                            <div class="d-flex flex-row align-items-end mb-3">
+                                <h1 class="mb-0 yellow" id="detail_amount"></h1>
+                            </div> <span id="detail_description"></span>
+                        </div>
+                    </div>
+                        <ul class="sb nav nav-pills" id="myTab" role="tablist">
+                            <li class="sb nav-item" role="presentation"> <a class="nav-link active" id="bitcoin-tab" data-toggle="tab" href="#bitcoin" role="tab" aria-controls="bitcoin" aria-selected="true"> <img src="https://soleaspay.com/webPay/asset/cryptocurrency.jpg" height="auto" width="60"> </a> </li>
+                            <li class="sb nav-item" role="presentation"> <a class="nav-link" id="pm-tab" data-toggle="tab" href="#pm" role="tab" aria-controls="pm" aria-selected="false"> <img src="https://soleaspay.com/webPay/asset/perfectmoney.png" height="auto" width="60"> </a> </li>
+                            <!-- <li class="nav-item" role="presentation"> <a class="nav-link" id="paypalBtn-tab" data-toggle="tab" href="#paypalBtn" role="tab" aria-controls="paypalBtn" aria-selected="false"> <img src="https://i.imgur.com/yK7EDD1.png" height="auto" width="60"> </a> </li> -->
+                            <li class="sb nav-item" role="presentation"> <a class="nav-link" id="orange-tab" data-toggle="tab" href="#orange" onclick="$.alert({title: 'Info!', content: 'Get your Orange Money OTP code by typing #150*44#',});" role="tab" aria-controls="orange" aria-selected="false"> <img src="https://soleaspay.com/webPay/asset/orangemoney.jpeg" height="auto" width="60"> </a> </li>
+                            <li class="sb nav-item" role="presentation"> <a class="nav-link" id="mtn-tab" data-toggle="tab" href="#mtn" role="tab" aria-controls="mtn" aria-selected="false"> <img src="https://soleaspay.com/webPay/asset/mobilemoney.png" height="auto" width="60"> </a> </li>
+                            <li class="sb nav-item" role="presentation"> <a class="nav-link" id="eu-tab" data-toggle="tab" href="#eu" role="tab" aria-controls="eu" aria-selected="false"> <img src="https://soleaspay.com/webPay/asset/eu.png" height="auto" width="60"> </a> </li>
+                        </ul>
+                   
+                    
+                    <div class="sb tab-content" id="myTabContent">
+                        
+                        <div class="tab-pane fade show active" id="bitcoin" role="tabpanel" aria-labelledby="bitcoin-tab">
+                            <div class="text-center">
+                                <h5>Cryptocurrency</h5>
+                            </div>
+                            <div class="px-5 mt-5">
+                                <form id="bitcoin_form"  method="post" onsubmit="return false" >
+                                    <!-- <div id="bitcoin_detail" class="alert alert-secondary" role="alert">
+                                    </div> -->
+                                    
+                                    <div class="sb inputbox">
+                                        <select class="sb form-select" id="bitcoin_service" aria-label="Default select example" required>
+                                        <option>Select cryptocurrency...</option>               
+                                        <option value="3">Bitcoin</option>
+                                        <option value="10">Litecoin</option>
+                                        <option value="11">Dogecoin</option>
+                                        <!-- <option value="9">Euthereum</option> -->
+                                      </select>
+                                    </div>
+                                    
+                                <div class="pay px-5"> <button class="btn btn-primary btn-block">Pay now</button> </div>
+                                </form>
+                                
+                                
+                            </div>
+                        </div>
+                        <!-- <div class="tab-pane fade" id="paypalBtn" role="tabpanel" aria-labelledby="paypalBtn-tab">
+                            <div class="text-center">
+                                <h5>PayPal</h5>
+                            </div>
+                            <div class="px-5 mt-5">
+                              <div id="ppal"></div>
+                                
+                            </div>
+                        </div> -->
+                        <div class="tab-pane fade" id="orange" role="tabpanel" aria-labelledby="orange-tab">
+                            <div class="text-center">
+                                <h5>Orange Money</h5>
+                            </div>
+                            <div class="px-5 mt-5">
+                                <form id="om_form" method="post" onsubmit="return false;" >
+                                     
+                                    <div class="sb inputbox"> <input type="phone" id="om_wallet" name="wallet" class="sb form-control" required="required"> <span>Phone Number</span> </div>
+                                    <div class="sb inputbox"> <input type="number" id="om_otp" name="otp" class="sb form-control" required="required"> <span>One Time Password</span> </div>
+                                    <input type="hidden" id="om_service" value="2"/>
+                                    <div class="pay px-5"> <button type="submit" class="btn btn-primary btn-block">Pay now</button> </div>
+                                </form>
+                                   
+                                
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="mtn" role="tabpanel" aria-labelledby="mtn-tab">
+                            <div class="text-center">
+                                <h5>Mobile Money</h5>
+                            </div>
+                            <div class="px-5 mt-5">
+                                <form id="momo_form" method="post" onsubmit="return false;" >
+                                    
+                                <div class="sb inputbox"> <input type="phone" id="momo_wallet" name="wallet" class="sb form-control" required="required"> <span>Phone Number</span> </div>
+                                <input type="hidden" id="momo_service" value="1"/>
+                                <div class="pay px-5"> <button type="submit" class="btn btn-primary btn-block">Pay now</button> </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="eu" role="tabpanel" aria-labelledby="mtn-tab">
+                            <div class="text-center">
+                                <h5>EU Mobile Money</h5>
+                            </div>
+                            <div class="px-5 mt-5">
+                                <form id="eu_form" method="post" onsubmit="return false;" >
+                                    
+                                    <div class="sb inputbox"> <input type="phone" id="eu_wallet" name="wallet" class="sb form-control" required="required"> <span>Phone Number</span> </div>
+                                    <input type="hidden" id="eu_service" value="5"/>
+                                    <div class="pay px-5"> <button type="submit" id="eu_btn" class="btn btn-primary btn-block">Pay now</button> </div>
+                                </form>
+                                    
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pm" role="tabpanel" aria-labelledby="pm-tab">
+                            <div class="text-center">
+                                <h5>Perfect Money</h5>
+                            </div>
+                            <div class="px-5 mt-5">
+                                <form id="pm_form" method="post" onsubmit="return false;" >
+                                    <input type="hidden" id="pm_service" value="8"/>
+                                    <div class="pay px-5"> <button type="submit" id="pm_btn" class="btn btn-primary btn-block">Pay now</button> </div>
+                                </form>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   
+</div>
+</html>

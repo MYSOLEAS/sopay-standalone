@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Sopay QR Code Generator</title>
+  <link rel="stylesheet" href="https://soleaspay.com/qr/style.css">
+
+</head>
+<body>
+
+<main id='container'>
+        <aside id='info' style="height:auto">
+            <!-- Shop Name -->
+            <input type='hidden' id='s' value=""/>
+            <label for='m'>
+              NB: <b>Collecter</b> permet au payeur de choisir le montant à payer.<br>
+              Tandis que <b>Facturer</b> vous permet de définir le montant à payer.<br>
+              Mode <b style="color: tomato;">*</b>
+            </label>
+            <select id='m'>
+                <option disabled selected required>Voulez vous ?</option>
+                <option value="b" required>Facturer</option>
+                <option value="t">Collecter</option>
+            </select>
+            <!-- Credit Card Holder Name -->
+            <label for='qrCount'>Nombre de QR code demander <b style="color: tomato;">*</b></label>
+            <input type='number' id='qrCount' min="1" max="147" value="1" required/>
+
+            <label for='d'>Description</label>
+            <input type='text' id='d' value="" minlength="10" maxlength="25" placeholder="Optionnel" />
+
+            <!-- Credit Card Holder Name -->
+            <label for='a'>Montant <b style="color: tomato;">*</b></label>
+            <input type='number' id='a' required/>
+
+            <label for='c'>Devise <b style="color: tomato;">*</b></label>
+            <select id='c'>
+                <option disabled selected required>Choisissez la devise</option>
+                <option value="USD" >USD</option>
+                <option value="XAF">FCFA</option>
+            </select>
+
+            <label for='l'>Langue <b style="color: tomato;">*</b></label>
+            <select id='l'>
+                <option disabled selected required>Choisissez la langue</option>
+                <option value="fr" >Français</option>
+                <option value="en">Anglais</option>
+            </select>
+            <input type="hidden" id="k" value=""/>
+            <button id='makePayment'>GENERER QR CODE</button>
+        </aside>
+        <aside id='description' style="overflow-y: hidden ;overflow-y: scroll">
+          <img src="https://soleaspay.com/qr/asset/sopay.png" height="auto" width="100">
+          <div id="qrcode" class="d-flex"></div>
+          <button  id='editOrder'>Télécharger</button>
+        </aside>
+    </main>
+<!-- partial -->
+  
+</body>
+
+<script type='text/javascript' src='https://code.jquery.com/jquery-3.5.0.js'></script>
+<script type='text/javascript' src='https://soleaspay.com/qr/qrcode.min.js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type='text/javascript' src='https://soleaspay.com/qr/qrcodegenerator-1.2.1.js'></script>
+</html>
